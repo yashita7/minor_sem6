@@ -1,0 +1,12 @@
+torch
+torchvision
+torchaudio
+opencv-python
+timm
+albumentations
+scikit-learn
+pandas
+numpy
+insightface
+matplotlib
+mediapipe

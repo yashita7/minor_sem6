@@ -1,0 +1,64 @@
+# Virtual Environments
+venv/
+.venv/
+.venv-1/
+env/
+ENV/
+venv310/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Models (large files)
+*.pkl
+*.task
+*.h5
+*.pt
+*.pth
+
+# Data outputs (generated during processing)
+data/output/*.json
+data/mudra_images/
+data/extracted_frames/
+data/hand_crop.jpg
+data/testimage.jfif
+
+# External datasets (large, from GitHub)
+external/Bharatanatyam-Mudra-Dataset/
+
+# OS files
+.DS_Store
+Thumbs.db
+.directory
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# MediaPipe frames output
+frames/
+data/frames/
+output/frames/
