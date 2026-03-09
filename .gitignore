@@ -28,6 +28,7 @@ build/
 *.ipynb_checkpoints
 
 # Models (large files)
+*.pkl
 *.task
 *.h5
 *.pt
