@@ -28,7 +28,6 @@ build/
 *.ipynb_checkpoints
 
 # Models (large files)
-*.pkl
 *.task
 *.h5
 *.pt
@@ -48,15 +47,6 @@ external/Bharatanatyam-Mudra-Dataset/
 .DS_Store
 Thumbs.db
 .directory
-
-# Logs
-*.log
-logs/
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
 
 # MediaPipe frames output
 frames/
