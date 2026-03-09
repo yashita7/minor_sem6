@@ -10,3 +10,4 @@ numpy
 insightface
 matplotlib
 mediapipe
+deep-translator

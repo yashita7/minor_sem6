@@ -1,0 +1,10 @@
+id,category,sanskrit_name,transliteration,english_name,meanings,description,viniyoga
+FAC01,Mukhaja Abhinaya,हास्य,Hasya,Smile,"['happiness','joy','laughter','delight']","Lips curved upward with relaxed eyes and raised cheeks","['expressing joy','greeting','playfulness','comic expression']"
+FAC02,Mukhaja Abhinaya,करुणा,Karuna,Sadness,"['sadness','sorrow','grief','pity']","Drooping eyelids with downward lips and soft gaze","['expressing loss','compassion','tragic scenes']"
+FAC03,Mukhaja Abhinaya,रौद्र,Raudra,Anger,"['anger','rage','fury','aggression']","Wide intense eyes, tightened lips, tense facial muscles","['battle scenes','showing fury','warning']"
+FAC04,Mukhaja Abhinaya,भयानक,Bhayanaka,Fear,"['fear','terror','anxiety']","Wide open eyes with raised eyebrows and slightly open mouth","['danger','shock','startled reaction']"
+FAC05,Mukhaja Abhinaya,शृंगार,Shringara,Love,"['love','romance','affection','beauty']","Soft gaze with gentle smile and relaxed facial muscles","['romantic scenes','expressing attraction','devotion']"
+FAC06,Mukhaja Abhinaya,अद्भुत,Adbhuta,Wonder,"['surprise','wonder','amazement']","Raised eyebrows with widened eyes and slightly open mouth","['seeing miracles','discoveries','divine moments']"
+FAC07,Mukhaja Abhinaya,वीर,Veera,Courage,"['bravery','confidence','heroism']","Firm gaze with raised chin and composed expression","['heroic scenes','determination','leadership']"
+FAC08,Mukhaja Abhinaya,बीभत्स,Bibhatsa,Disgust,"['disgust','aversion','distaste']","Wrinkled nose with narrowed eyes and slightly open lips","['seeing something unpleasant','rejection']"
+FAC09,Mukhaja Abhinaya,शान्त,Shanta,Peace,"['peace','calm','serenity']","Closed or half-closed eyes with relaxed facial muscles","['meditation','divine calm','spiritual scenes']"
