@@ -6,6 +6,9 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 
+import warnings
+warnings.filterwarnings("ignore")
+
 nltk.data.path.append("./nltk_data")
 
 lemmatizer = WordNetLemmatizer()
@@ -91,29 +94,28 @@ face_dict = {}
 
 
 def expand_word(word, lemmatizer):
-    """
-    Expand a word using:
-    - original
-    - noun lemma
-    - verb lemma
-    - WordNet synonyms
-    """
 
     expanded = set()
 
-    word = word.lower()
+    if not isinstance(word, str):
+        return expanded
+
+    word = word.lower().strip()
+
+    if word == "":
+        return expanded
+
     expanded.add(word)
 
-    # noun lemma
     expanded.add(lemmatizer.lemmatize(word, pos='n'))
-
-    # verb lemma
     expanded.add(lemmatizer.lemmatize(word, pos='v'))
 
-    # synonyms
-    for syn in wordnet.synsets(word)[:2]:
-        for l in syn.lemmas():
-            expanded.add(l.name().lower().replace("_", " "))
+    try:
+        for syn in wordnet.synsets(word)[:2]:
+            for l in syn.lemmas():
+                expanded.add(l.name().lower().replace("_", " "))
+    except:
+        pass
 
     return expanded
 
@@ -259,39 +261,6 @@ def sentence_to_gestures(sentence):
 # ===============================
 # TEST SENTENCES
 # ===============================
-
-# test_sentences = [
-
-#     # Mudra focused
-#     "The river flows in the forest",
-#     "The king holds a crown",
-#     "A flower is offered to god",
-
-
-#     # Emotion + mudra
-#     "A flower is offered with love",
-#     "The warrior shows anger",
-#     "The child laughs with joy",
-#     "having fun in the rain with havy rainy clouds falling in love",
-
-#     # Facial expressions
-#     "The girl feels happy",
-#     "The boy is joyful",
-#     "The woman is sad",
-#     "The man becomes angry",
-#     "The child is scared",
-#     "The devotee feels peaceful",
-#     "The hero stands brave",
-#     "The person feels disgust",
-
-#     # Hindi tests
-#     "राजा के सिर पर मुकुट है",
-#     "नदी जंगल में बहती है",
-#     "बच्चा खुश है",
-#     "वह डर गया",
-#     "वह गुस्से में है"
-# ]
-
 test_sentences = [
 
     # -----------------
