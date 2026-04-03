@@ -13,9 +13,7 @@ nltk.data.path.append("./nltk_data")
 
 lemmatizer = WordNetLemmatizer()
 
-# ===============================
 # LOAD DATASETS
-# ===============================
 
 print("Loading datasets...\n")
 
@@ -85,9 +83,7 @@ emotion_normalization = {
     "repulsed": "disgust"
 
 }
-# ===============================
 # BUILD SEMANTIC DICTIONARIES
-# ===============================
 
 mudra_dict = {}
 face_dict = {}
@@ -120,9 +116,7 @@ def expand_word(word, lemmatizer):
     return expanded
 
 
-# ---------------------------
 # MUDRA DICTIONARY
-# ---------------------------
 
 for _, row in mudra_df.iterrows():
 
@@ -149,9 +143,7 @@ for _, row in mudra_df.iterrows():
                 mudra_dict[ew] = gesture
 
 
-# ---------------------------
 # FACIAL EXPRESSION DICTIONARY
-# ---------------------------
 
 for _, row in face_df.iterrows():
 
@@ -181,9 +173,7 @@ print("\nMudra semantic mappings:", len(mudra_dict))
 print("Facial semantic mappings:", len(face_dict))
 
 
-# ===============================
 # TEXT PREPROCESSING
-# ===============================
 
 def preprocess(text):
 
@@ -205,9 +195,7 @@ def preprocess(text):
     return processed
 
 
-# ===============================
 # TRANSLATION
-# ===============================
 
 def translate_if_needed(text):
 
@@ -219,9 +207,7 @@ def translate_if_needed(text):
         return text
 
 
-# ===============================
 # SENTENCE → GESTURES
-# ===============================
 
 def sentence_to_gestures(sentence):
 
@@ -258,14 +244,10 @@ def sentence_to_gestures(sentence):
     return translated, mudras, expressions
 
 
-# ===============================
 # TEST SENTENCES
-# ===============================
 test_sentences = [
 
-    # -----------------
     # Simple mudra tests
-    # -----------------
     "The river flows in the forest",
     "The king holds a crown",
     "A flower is offered to god",
@@ -276,9 +258,7 @@ test_sentences = [
     "The warrior holds his weapon",
     "The devotee folds hands in prayer",
 
-    # -----------------
     # Mudra + emotion
-    # -----------------
     "A flower is offered with love",
     "The warrior shows anger",
     "The child laughs with joy",
@@ -289,9 +269,7 @@ test_sentences = [
     "The hero stands brave before the enemy",
     "The person feels disgust after seeing something dirty",
 
-    # -----------------
     # Facial emotion tests
-    # -----------------
     "The girl feels happy",
     "The boy is joyful",
     "The woman is sad",
@@ -303,9 +281,7 @@ test_sentences = [
     "The student is surprised by the news",
     "The mother shows affection to her child",
 
-    # -----------------
     # Small story tests
-    # -----------------
     "A young girl walks through the forest and sees a beautiful flower near the river. She smiles with joy and offers the flower to god with devotion.",
     
     "A brave warrior enters the battlefield with anger and determination. He raises his weapon and challenges the enemy with great strength.",
@@ -316,25 +292,19 @@ test_sentences = [
     
     "A frightened traveler moves through a dark forest at night. The wind blows strongly and strange sounds make him feel terrified.",
 
-    # -----------------
     # Mythological style
-    # -----------------
     "Lord Shiva stands with great power holding the trident while the moon shines on his head and the river flows from his hair.",
     
     "Krishna plays the flute near the river while cows gather around him and the gopis watch with love and devotion.",
     
     "Garuda flies across the sky with great strength while the sun shines brightly and the wind moves the clouds.",
 
-    # -----------------
     # Longer narrative
-    # -----------------
     "In the quiet forest a young devotee walks slowly toward the temple carrying flowers. The river flows nearby and the moon shines softly in the night sky. With love and devotion the devotee offers the flowers to god and feels deep peace.",
 
     "A powerful king sits proudly on his throne wearing a crown while warriors stand beside him. The people gather in respect and offer gifts with honor and loyalty.",
 
-    # -----------------
     # Hindi tests
-    # -----------------
     "राजा के सिर पर मुकुट है",
     "नदी जंगल में बहती है",
     "बच्चा खुश है",
@@ -370,9 +340,7 @@ for s in test_sentences:
     print("------------------------------------------------------------------------------")
 
 
-# ===============================
 # INTERACTIVE MODE
-# ===============================
 
 print("\n==============================")
 print("Dance Gesture Generator")
