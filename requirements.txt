@@ -11,3 +11,4 @@ insightface
 matplotlib
 mediapipe
 deep-translator
+spacy
