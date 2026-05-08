@@ -190,6 +190,7 @@ def get_character(rasas, mudras):
         options = rasa_characters.get(dominant, ["The dancer"])
         return random.choice(options)
 
+
 #  UTILITIES (ROBUST)
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
@@ -213,6 +214,8 @@ def unique_extend(base_list, new_items):
             base_list.append(item)
     return base_list
 #  GESTURE SENTENCE — built from your description + meanings
+
+
 def gesture_sentence(character, mudra_name):
     if mudra_name not in mudra_info:
         return f"{character} forms an ancient gesture."
@@ -235,6 +238,8 @@ def gesture_sentence(character, mudra_name):
         return f"{character} {desc} — expressing {meaning_word}."
 
 #  CORE FUNCTION
+
+
 def mudras_and_rasas_to_story(mudras: list, rasas: list) -> str:
     if not mudras and not rasas:
         return "No gestures or expressions provided."
@@ -251,7 +256,8 @@ def mudras_and_rasas_to_story(mudras: list, rasas: list) -> str:
 
     # ✅ STEP 2: build tone correctly
     if len(valid_rasas) > 1:
-        tone = pick(vocab["tones"]) + " yet " + pick(rasa_story[valid_rasas[1]]["tones"])
+        tone = pick(vocab["tones"]) + " yet " + \
+            pick(rasa_story[valid_rasas[1]]["tones"])
     else:
         tone = pick(vocab["tones"])
 
