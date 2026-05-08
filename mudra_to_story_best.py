@@ -5,10 +5,7 @@ import random
 import warnings
 warnings.filterwarnings("ignore")
 
-# ─────────────────────────────────────────────────────────────
 #  LOAD DATASETS
-# ─────────────────────────────────────────────────────────────
-
 mudra_df = pd.read_csv("./data/mudras.csv")
 face_df = pd.read_csv("./data/facial_expressions.csv")
 
@@ -17,10 +14,7 @@ mudra_df["viniyoga"] = mudra_df["viniyoga"].apply(ast.literal_eval)
 face_df["meanings"] = face_df["meanings"].apply(ast.literal_eval)
 face_df["viniyoga"] = face_df["viniyoga"].apply(ast.literal_eval)
 
-# ─────────────────────────────────────────────────────────────
 #  BUILD INFO DICTS FROM YOUR ACTUAL DATA
-# ─────────────────────────────────────────────────────────────
-
 mudra_info = {}
 for _, row in mudra_df.iterrows():
     mudra_info[row["transliteration"]] = {
@@ -40,10 +34,7 @@ for _, row in face_df.iterrows():
         "english":     row["english_name"],
     }
 
-# ─────────────────────────────────────────────────────────────
 #  RASA STORY VOCABULARY
-# ─────────────────────────────────────────────────────────────
-
 rasa_story = {
     "Hasya": {
         "settings": ["the sunlit riverside", "the open festival ground",
@@ -118,11 +109,7 @@ rasa_story = {
         "closing":  "Everything is still. Everything is enough.",
     },
 }
-
-# ─────────────────────────────────────────────────────────────
 #  CHARACTER SELECTION — single entity
-# ─────────────────────────────────────────────────────────────
-
 rasa_characters = {
     "Raudra":    ["The warrior", "The fierce king", "The lone warrior"],
     "Veera":     ["The great warrior", "The king", "The brave soldier"],
@@ -135,10 +122,7 @@ rasa_characters = {
     "Bibhatsa":  ["The warrior", "The traveler", "He"],
 }
 
-# ─────────────────────────────────────────────────────────────
 #  MUDRA → ROLE INFERENCE (NEW)
-# ─────────────────────────────────────────────────────────────
-
 mudra_role_map = {
 
     # royalty / power
@@ -206,11 +190,7 @@ def get_character(rasas, mudras):
         options = rasa_characters.get(dominant, ["The dancer"])
         return random.choice(options)
 
-# ─────────────────────────────────────────────────────────────
 #  UTILITIES (ROBUST)
-# ─────────────────────────────────────────────────────────────
-
-
 RANDOM_SEED = 42
 random.seed(RANDOM_SEED)
 
@@ -232,11 +212,7 @@ def unique_extend(base_list, new_items):
         if item not in base_list:
             base_list.append(item)
     return base_list
-# ─────────────────────────────────────────────────────────────
 #  GESTURE SENTENCE — built from your description + meanings
-# ─────────────────────────────────────────────────────────────
-
-
 def gesture_sentence(character, mudra_name):
     if mudra_name not in mudra_info:
         return f"{character} forms an ancient gesture."
@@ -258,10 +234,7 @@ def gesture_sentence(character, mudra_name):
     else:
         return f"{character} {desc} — expressing {meaning_word}."
 
-# ─────────────────────────────────────────────────────────────
 #  CORE FUNCTION
-# ─────────────────────────────────────────────────────────────
-
 def mudras_and_rasas_to_story(mudras: list, rasas: list) -> str:
     if not mudras and not rasas:
         return "No gestures or expressions provided."
@@ -310,9 +283,7 @@ def mudras_and_rasas_to_story(mudras: list, rasas: list) -> str:
     closing = vocab["closing"]
 
     return " ".join([s1] + gesture_sentences + [climax, closing])
-# ─────────────────────────────────────────────────────────────
 #  EXAMPLES
-# ─────────────────────────────────────────────────────────────
 
 
 examples = [
@@ -425,9 +396,7 @@ examples.extend([
      "rasas": ["Shanta"]},
 
 ])
-# ─────────────────────────────────────────────────────────────
 #  MAIN
-# ─────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
 
