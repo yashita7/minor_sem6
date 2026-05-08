@@ -185,11 +185,6 @@ def get_character(rasas, mudras):
         best_role = max(role_scores, key=role_scores.get)
         return f"The {best_role}"
 
-        # 2. fallback to rasa (your original logic)
-        dominant = rasas[0] if rasas else "Shanta"
-        options = rasa_characters.get(dominant, ["The dancer"])
-        return random.choice(options)
-
 
 #  UTILITIES (ROBUST)
 RANDOM_SEED = 42
@@ -250,42 +245,42 @@ def mudras_and_rasas_to_story(mudras: list, rasas: list) -> str:
     if not valid_rasas:
         valid_rasas = ["Shanta"]
 
-    # ✅ STEP 1: get dominant rasa FIRST
+    #  STEP 1: get dominant rasa FIRST
     dominant_rasa = valid_rasas[0]
     vocab = rasa_story[dominant_rasa]
 
-    # ✅ STEP 2: build tone correctly
+    #  STEP 2: build tone correctly
     if len(valid_rasas) > 1:
         tone = pick(vocab["tones"]) + " yet " + \
             pick(rasa_story[valid_rasas[1]]["tones"])
     else:
         tone = pick(vocab["tones"])
 
-    # ✅ STEP 3: character
+    #  STEP 3: character
     character = get_character(valid_rasas, valid_mudras)
 
-    # ✅ sentence 1
+    #  sentence 1
     s1 = f"{character} stands {tone} in {pick(vocab['settings'])}."
 
-    # ✅ gesture sentences
+    #  gesture sentences
     gesture_sentences = []
     for mudra in valid_mudras[:3]:
         gesture_sentences.append(gesture_sentence(character, mudra))
 
-    # ✅ fallback if no mudras
+    #  fallback if no mudras
     if not gesture_sentences:
         gesture_sentences.append(
             f"{character} {pick(vocab['actions'])} {tone}, "
             f"moved by deep {pick(vocab['emotion'])}."
         )
 
-    # ✅ climax
+    #  climax
     climax = (
         f"{character} {pick(vocab['actions'])} {tone}, "
         f"overcome with {pick(vocab['emotion'])}."
     )
 
-    # ✅ closing
+    #  closing
     closing = vocab["closing"]
 
     return " ".join([s1] + gesture_sentences + [climax, closing])
